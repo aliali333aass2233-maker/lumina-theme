@@ -180,9 +180,9 @@ function CompensationPage() {
             <div className="label-caps text-primary text-[11px]">Year-on-year highlights</div>
             <div className="text-[10px] text-muted-foreground">Table 10, p.11</div>
           </div>
-          <div className="flex-1 min-h-0 overflow-hidden rounded-lg border border-white/10">
+          <div className="flex-1 min-h-0 overflow-hidden rounded-lg border border-foreground/10">
             <table className="w-full text-sm">
-              <thead className="bg-white/[0.03] text-muted-foreground text-xs">
+              <thead className="bg-foreground/[0.03] text-muted-foreground text-xs">
                 <tr>
                   <th className="text-left px-4 py-2 font-medium">Metric</th>
                   <th className="text-right px-4 py-2 font-medium">2022-23</th>
@@ -195,7 +195,7 @@ function CompensationPage() {
                   const delta = r.curr - r.prev;
                   const pos = delta >= 0;
                   return (
-                    <tr key={r.key} className="border-t border-white/5">
+                    <tr key={r.key} className="border-t border-foreground/5">
                       <td className="px-4 py-2">{r.key}</td>
                       <td className="px-4 py-2 text-right tabular-nums">{r.prev}</td>
                       <td className="px-4 py-2 text-right tabular-nums font-semibold">{r.curr}</td>

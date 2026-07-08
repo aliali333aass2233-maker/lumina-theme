@@ -93,7 +93,7 @@ function DomainCard({ domain, index, onOpen }: { domain: Domain; index: number; 
   return (
     <button
       onClick={onOpen}
-      className="group relative rounded-2xl overflow-hidden text-left border border-white/10 hover:border-white/25 transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/60"
+      className="group relative rounded-2xl overflow-hidden text-left border border-foreground/10 hover:border-foreground/25 transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/60"
       style={{ ["--dm-accent" as string]: domain.accent }}
     >
       <img
@@ -171,7 +171,7 @@ function DomainDetail({ domain, onBack }: { domain: Domain; onBack: () => void }
       <div className="shrink-0 flex items-center gap-3">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] hover:border-white/30 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-[11px] hover:border-foreground/30 transition-colors"
         >
           ← All domains
         </button>
@@ -220,7 +220,7 @@ function DomainDetail({ domain, onBack }: { domain: Domain; onBack: () => void }
                 </thead>
                 <tbody>
                   {domain.rows.map((r) => (
-                    <tr key={r.degree} className="border-t border-border/70 align-top hover:bg-white/[0.03]">
+                    <tr key={r.degree} className="border-t border-border/70 align-top hover:bg-foreground/[0.03]">
                       <td className="px-3 py-2 font-medium text-foreground min-w-[160px]">{r.degree}</td>
                       <td className="px-3 py-2 text-muted-foreground min-w-[180px]">{r.companies}</td>
                       <td className="px-3 py-2 text-muted-foreground min-w-[180px]">{r.roles}</td>

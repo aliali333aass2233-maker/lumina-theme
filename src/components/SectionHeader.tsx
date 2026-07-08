@@ -69,7 +69,7 @@ function PlacementsMenu({ isActive }: { isActive: boolean }) {
               key={c.to}
               to={c.to}
               onClick={() => setOpen(false)}
-              className="block px-4 py-2.5 text-sm text-foreground/80 hover:bg-white/5 hover:text-foreground transition-colors"
+              className="block px-4 py-2.5 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-foreground transition-colors"
             >
               {c.label}
             </Link>

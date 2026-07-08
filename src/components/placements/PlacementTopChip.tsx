@@ -27,8 +27,8 @@ export function PlacementTopChip({
     <a
       href={href}
       className={`fixed top-3 right-3 z-50 group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium tracking-tight
-        border border-white/10 bg-black/60 backdrop-blur-md text-foreground/90
-        hover:text-foreground hover:border-primary/50 hover:bg-black/80
+        border border-foreground/10 bg-background/60 backdrop-blur-md text-foreground/90
+        hover:text-foreground hover:border-primary/50 hover:bg-background/80
         transition-all shadow-[0_2px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_2px_28px_rgba(255,90,60,0.35)]`}
     >
       {variant === "back" && <span className="text-primary">←</span>}

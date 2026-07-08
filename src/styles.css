@@ -73,6 +73,7 @@
   --chart-tooltip-text: #18181b;
   --ambient-base: #eceef3;
   --grid-line: rgba(20,20,25,0.26);
+  --vignette: rgba(0,0,0,0.06);
 }
 
 /* ---------- DARK THEME (unchanged original palette) ---------- */
@@ -107,6 +108,7 @@
   --chart-tooltip-text: #f4f4f5;
   --ambient-base: #08090b;
   --grid-line: rgba(255,255,255,0.5);
+  --vignette: rgba(0,0,0,0.75);
 }
 
 @layer base {

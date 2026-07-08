@@ -9,38 +9,261 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrendsRouteImport } from './routes/trends'
+import { Route as TopRecruitersRouteImport } from './routes/top-recruiters'
+import { Route as StartupsRouteImport } from './routes/startups'
+import { Route as RanksRouteImport } from './routes/ranks'
+import { Route as PlacementsRouteImport } from './routes/placements'
+import { Route as FeesRouteImport } from './routes/fees'
+import { Route as CampusRouteImport } from './routes/campus'
+import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlacementsIndexRouteImport } from './routes/placements.index'
+import { Route as PlacementsSectorsRouteImport } from './routes/placements.sectors'
+import { Route as PlacementsCompensationRouteImport } from './routes/placements.compensation'
+import { Route as PlacementsBranchesIndexRouteImport } from './routes/placements.branches.index'
+import { Route as PlacementsBranchesBranchRouteImport } from './routes/placements.branches.$branch'
 
+const TrendsRoute = TrendsRouteImport.update({
+  id: '/trends',
+  path: '/trends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopRecruitersRoute = TopRecruitersRouteImport.update({
+  id: '/top-recruiters',
+  path: '/top-recruiters',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartupsRoute = StartupsRouteImport.update({
+  id: '/startups',
+  path: '/startups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RanksRoute = RanksRouteImport.update({
+  id: '/ranks',
+  path: '/ranks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlacementsRoute = PlacementsRouteImport.update({
+  id: '/placements',
+  path: '/placements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampusRoute = CampusRouteImport.update({
+  id: '/campus',
+  path: '/campus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlacementsIndexRoute = PlacementsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PlacementsRoute,
+} as any)
+const PlacementsSectorsRoute = PlacementsSectorsRouteImport.update({
+  id: '/sectors',
+  path: '/sectors',
+  getParentRoute: () => PlacementsRoute,
+} as any)
+const PlacementsCompensationRoute = PlacementsCompensationRouteImport.update({
+  id: '/compensation',
+  path: '/compensation',
+  getParentRoute: () => PlacementsRoute,
+} as any)
+const PlacementsBranchesIndexRoute = PlacementsBranchesIndexRouteImport.update({
+  id: '/branches/',
+  path: '/branches/',
+  getParentRoute: () => PlacementsRoute,
+} as any)
+const PlacementsBranchesBranchRoute =
+  PlacementsBranchesBranchRouteImport.update({
+    id: '/branches/$branch',
+    path: '/branches/$branch',
+    getParentRoute: () => PlacementsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alumni': typeof AlumniRoute
+  '/campus': typeof CampusRoute
+  '/fees': typeof FeesRoute
+  '/placements': typeof PlacementsRouteWithChildren
+  '/ranks': typeof RanksRoute
+  '/startups': typeof StartupsRoute
+  '/top-recruiters': typeof TopRecruitersRoute
+  '/trends': typeof TrendsRoute
+  '/placements/compensation': typeof PlacementsCompensationRoute
+  '/placements/sectors': typeof PlacementsSectorsRoute
+  '/placements/': typeof PlacementsIndexRoute
+  '/placements/branches/$branch': typeof PlacementsBranchesBranchRoute
+  '/placements/branches/': typeof PlacementsBranchesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alumni': typeof AlumniRoute
+  '/campus': typeof CampusRoute
+  '/fees': typeof FeesRoute
+  '/ranks': typeof RanksRoute
+  '/startups': typeof StartupsRoute
+  '/top-recruiters': typeof TopRecruitersRoute
+  '/trends': typeof TrendsRoute
+  '/placements/compensation': typeof PlacementsCompensationRoute
+  '/placements/sectors': typeof PlacementsSectorsRoute
+  '/placements': typeof PlacementsIndexRoute
+  '/placements/branches/$branch': typeof PlacementsBranchesBranchRoute
+  '/placements/branches': typeof PlacementsBranchesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alumni': typeof AlumniRoute
+  '/campus': typeof CampusRoute
+  '/fees': typeof FeesRoute
+  '/placements': typeof PlacementsRouteWithChildren
+  '/ranks': typeof RanksRoute
+  '/startups': typeof StartupsRoute
+  '/top-recruiters': typeof TopRecruitersRoute
+  '/trends': typeof TrendsRoute
+  '/placements/compensation': typeof PlacementsCompensationRoute
+  '/placements/sectors': typeof PlacementsSectorsRoute
+  '/placements/': typeof PlacementsIndexRoute
+  '/placements/branches/$branch': typeof PlacementsBranchesBranchRoute
+  '/placements/branches/': typeof PlacementsBranchesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alumni'
+    | '/campus'
+    | '/fees'
+    | '/placements'
+    | '/ranks'
+    | '/startups'
+    | '/top-recruiters'
+    | '/trends'
+    | '/placements/compensation'
+    | '/placements/sectors'
+    | '/placements/'
+    | '/placements/branches/$branch'
+    | '/placements/branches/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alumni'
+    | '/campus'
+    | '/fees'
+    | '/ranks'
+    | '/startups'
+    | '/top-recruiters'
+    | '/trends'
+    | '/placements/compensation'
+    | '/placements/sectors'
+    | '/placements'
+    | '/placements/branches/$branch'
+    | '/placements/branches'
+  id:
+    | '__root__'
+    | '/'
+    | '/alumni'
+    | '/campus'
+    | '/fees'
+    | '/placements'
+    | '/ranks'
+    | '/startups'
+    | '/top-recruiters'
+    | '/trends'
+    | '/placements/compensation'
+    | '/placements/sectors'
+    | '/placements/'
+    | '/placements/branches/$branch'
+    | '/placements/branches/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlumniRoute: typeof AlumniRoute
+  CampusRoute: typeof CampusRoute
+  FeesRoute: typeof FeesRoute
+  PlacementsRoute: typeof PlacementsRouteWithChildren
+  RanksRoute: typeof RanksRoute
+  StartupsRoute: typeof StartupsRoute
+  TopRecruitersRoute: typeof TopRecruitersRoute
+  TrendsRoute: typeof TrendsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trends': {
+      id: '/trends'
+      path: '/trends'
+      fullPath: '/trends'
+      preLoaderRoute: typeof TrendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/top-recruiters': {
+      id: '/top-recruiters'
+      path: '/top-recruiters'
+      fullPath: '/top-recruiters'
+      preLoaderRoute: typeof TopRecruitersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/startups': {
+      id: '/startups'
+      path: '/startups'
+      fullPath: '/startups'
+      preLoaderRoute: typeof StartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranks': {
+      id: '/ranks'
+      path: '/ranks'
+      fullPath: '/ranks'
+      preLoaderRoute: typeof RanksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/placements': {
+      id: '/placements'
+      path: '/placements'
+      fullPath: '/placements'
+      preLoaderRoute: typeof PlacementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campus': {
+      id: '/campus'
+      path: '/campus'
+      fullPath: '/campus'
+      preLoaderRoute: typeof CampusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +271,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/placements/': {
+      id: '/placements/'
+      path: '/'
+      fullPath: '/placements/'
+      preLoaderRoute: typeof PlacementsIndexRouteImport
+      parentRoute: typeof PlacementsRoute
+    }
+    '/placements/sectors': {
+      id: '/placements/sectors'
+      path: '/sectors'
+      fullPath: '/placements/sectors'
+      preLoaderRoute: typeof PlacementsSectorsRouteImport
+      parentRoute: typeof PlacementsRoute
+    }
+    '/placements/compensation': {
+      id: '/placements/compensation'
+      path: '/compensation'
+      fullPath: '/placements/compensation'
+      preLoaderRoute: typeof PlacementsCompensationRouteImport
+      parentRoute: typeof PlacementsRoute
+    }
+    '/placements/branches/': {
+      id: '/placements/branches/'
+      path: '/branches'
+      fullPath: '/placements/branches/'
+      preLoaderRoute: typeof PlacementsBranchesIndexRouteImport
+      parentRoute: typeof PlacementsRoute
+    }
+    '/placements/branches/$branch': {
+      id: '/placements/branches/$branch'
+      path: '/branches/$branch'
+      fullPath: '/placements/branches/$branch'
+      preLoaderRoute: typeof PlacementsBranchesBranchRouteImport
+      parentRoute: typeof PlacementsRoute
+    }
   }
 }
 
+interface PlacementsRouteChildren {
+  PlacementsCompensationRoute: typeof PlacementsCompensationRoute
+  PlacementsSectorsRoute: typeof PlacementsSectorsRoute
+  PlacementsIndexRoute: typeof PlacementsIndexRoute
+  PlacementsBranchesBranchRoute: typeof PlacementsBranchesBranchRoute
+  PlacementsBranchesIndexRoute: typeof PlacementsBranchesIndexRoute
+}
+
+const PlacementsRouteChildren: PlacementsRouteChildren = {
+  PlacementsCompensationRoute: PlacementsCompensationRoute,
+  PlacementsSectorsRoute: PlacementsSectorsRoute,
+  PlacementsIndexRoute: PlacementsIndexRoute,
+  PlacementsBranchesBranchRoute: PlacementsBranchesBranchRoute,
+  PlacementsBranchesIndexRoute: PlacementsBranchesIndexRoute,
+}
+
+const PlacementsRouteWithChildren = PlacementsRoute._addFileChildren(
+  PlacementsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlumniRoute: AlumniRoute,
+  CampusRoute: CampusRoute,
+  FeesRoute: FeesRoute,
+  PlacementsRoute: PlacementsRouteWithChildren,
+  RanksRoute: RanksRoute,
+  StartupsRoute: StartupsRoute,
+  TopRecruitersRoute: TopRecruitersRoute,
+  TrendsRoute: TrendsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

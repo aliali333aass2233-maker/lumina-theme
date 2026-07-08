@@ -78,7 +78,13 @@
 
 /* ---------- DARK THEME (unchanged original palette) ---------- */
 .dark {
-  --background: oklch(0.145 0 0);
+  /* --background: oklch(0.145 0 0); */
+  /* --background: oklch(0.14 0.015 20); */
+  --background: oklch(0.15 0.015 250);
+  /* --background: oklch(0.17 0.01 0); */
+  /* --background: oklch(0.16 0.03 250); */
+  /* --background: oklch(0.14 0.035 255); */
+  /* --background: oklch(0.19 0.03 248); */
   --foreground: oklch(0.97 0.005 260);
   --card: oklch(0.17 0 0);
   --card-foreground: oklch(0.97 0.005 260);

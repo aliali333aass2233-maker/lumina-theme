@@ -46,7 +46,7 @@ export function GlowBorder({
         className="relative"
         style={{
           borderRadius: radius,
-          background: "rgba(10,10,14,0.94)",
+          background: "var(--card)",   // ✅ theme-aware
           height: "100%",
         }}
       >

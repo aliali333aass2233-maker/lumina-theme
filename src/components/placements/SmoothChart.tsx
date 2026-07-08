@@ -70,7 +70,7 @@ function DeltaLabel({ x, y, index, data, dataKey, color }: any) {
     <g transform={`translate(${x},${y - 22})`}>
       <rect
         x={-18} y={-11} width={36} height={18} rx={9}
-        fill="rgba(10,10,15,0.85)"
+        fill="var(--chart-tooltip-bg)"
         stroke={badgeColor}
         strokeWidth={1}
       />
@@ -130,12 +130,12 @@ export function SmoothArea({
               </linearGradient>
             ))}
           </defs>
-          <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} />
-          <XAxis dataKey={xKey} stroke="rgba(255,255,255,0.55)" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis domain={domain} stroke="rgba(255,255,255,0.5)" fontSize={11} tickLine={false} axisLine={false} />
+          <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
+          <XAxis dataKey={xKey} stroke="var(--chart-axis)" fontSize={12} tickLine={false} axisLine={false} />
+          <YAxis domain={domain} stroke="var(--chart-axis)" fontSize={11} tickLine={false} axisLine={false} />
           <Tooltip
             contentStyle={{
-              background: "rgba(10,10,15,0.92)", border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
               borderRadius: 8, fontSize: 11,
             }}
           />
@@ -145,7 +145,7 @@ export function SmoothArea({
               type="monotone"
               dataKey={compareKey}
               name={compareLabel}
-              stroke="rgba(255,255,255,0.35)"
+              stroke="var(--chart-axis-faint)"
               strokeWidth={1.5}
               strokeDasharray="4 4"
               fill="transparent"
@@ -218,12 +218,12 @@ export function SmoothLine({
     <div ref={ref}>
       <ResponsiveContainer width="100%" height={height}>
         <LineChart data={data} margin={{ top: 28, right: 8, left: -18, bottom: 0 }}>
-          <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} />
-          <XAxis dataKey={xKey} stroke="rgba(255,255,255,0.55)" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis domain={domain} stroke="rgba(255,255,255,0.5)" fontSize={11} tickLine={false} axisLine={false} />
+          <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
+          <XAxis dataKey={xKey} stroke="var(--chart-axis)" fontSize={12} tickLine={false} axisLine={false} />
+          <YAxis domain={domain} stroke="var(--chart-axis)" fontSize={11} tickLine={false} axisLine={false} />
           <Tooltip
             contentStyle={{
-              background: "rgba(10,10,15,0.92)", border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
               borderRadius: 8, fontSize: 11,
             }}
           />
@@ -297,15 +297,15 @@ export function SmoothBar({
               <stop offset="100%" stopColor={color} stopOpacity={0.25} />
             </linearGradient>
           </defs>
-          <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} />
-          <XAxis dataKey={xKey} stroke="rgba(255,255,255,0.45)" fontSize={10} tickLine={false} axisLine={false} />
-          <YAxis stroke="rgba(255,255,255,0.45)" fontSize={10} tickLine={false} axisLine={false} />
+          <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
+          <XAxis dataKey={xKey} stroke="var(--chart-axis)" fontSize={10} tickLine={false} axisLine={false} />
+          <YAxis stroke="var(--chart-axis)" fontSize={10} tickLine={false} axisLine={false} />
           <Tooltip
             contentStyle={{
-              background: "rgba(10,10,15,0.92)", border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
               borderRadius: 8, fontSize: 11,
             }}
-            cursor={{ fill: "rgba(255,255,255,0.04)" }}
+            cursor={{ fill: "var(--chart-cursor)" }}
           />
           <Bar
             dataKey={dataKey}
@@ -353,21 +353,21 @@ export function SmoothBarPeak({
               </linearGradient>
             ))}
           </defs>
-          <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} />
-          <XAxis dataKey={xKey} stroke="rgba(255,255,255,0.5)" fontSize={13} tickLine={false} axisLine={false} dy={4} />
+          <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
+          <XAxis dataKey={xKey} stroke="var(--chart-axis)" fontSize={13} tickLine={false} axisLine={false} dy={4} />
           <YAxis
             domain={[Math.max(0, Math.floor(min - range * 0.15)), Math.ceil(max + range * 0.15)]}
-            stroke="rgba(255,255,255,0.5)"
+            stroke="var(--chart-axis)"
             fontSize={13}
             tickLine={false}
             axisLine={false}
           />
           <Tooltip
             contentStyle={{
-              background: "rgba(10,10,15,0.92)", border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
               borderRadius: 8, fontSize: 11,
             }}
-            cursor={{ fill: "rgba(255,255,255,0.04)" }}
+            cursor={{ fill: "var(--chart-cursor)" }}
           />
           <Bar
             dataKey={dataKey}

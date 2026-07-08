@@ -28,7 +28,7 @@ export function GlowStat({
       <div className="label-caps text-[9px]" style={{ color: accent }}>{label}</div>
       <div
         className="mt-1 text-lg md:text-xl font-semibold tabular-nums"
-        style={{ color: "#fff", textShadow: `0 0 12px ${accent}88` }}
+        style={{ color: "var(--foreground)", textShadow: `0 0 12px ${accent}88` }}
       >
         {value}
       </div>

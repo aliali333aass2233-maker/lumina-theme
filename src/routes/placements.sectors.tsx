@@ -96,10 +96,10 @@ function SectorsPage() {
         </div>
         <ResponsiveContainer width="100%" height={320}>
           <BarChart data={SECTOR_PROGRAM} margin={{ top: 8, right: 8, left: -14, bottom: 40 }}>
-            <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} strokeDasharray="3 3" />
+            <CartesianGrid stroke="var(--chart-grid)" vertical={false} strokeDasharray="3 3" />
             <XAxis
               dataKey="sector"
-              stroke="rgba(255,255,255,0.55)"
+              stroke="var(--chart-axis)"
               fontSize={11}
               tickLine={false}
               axisLine={false}
@@ -108,15 +108,15 @@ function SectorsPage() {
               textAnchor="end"
               height={70}
             />
-            <YAxis stroke="rgba(255,255,255,0.5)" fontSize={11} tickLine={false} axisLine={false} />
+            <YAxis stroke="var(--chart-axis)" fontSize={11} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{
-                background: "rgba(10,10,15,0.94)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "var(--chart-tooltip-bg)",
+                border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
                 borderRadius: 8,
                 fontSize: 11,
               }}
-              cursor={{ fill: "rgba(255,255,255,0.04)" }}
+              cursor={{ fill: "var(--chart-cursor)" }}
             />
             <Legend wrapperStyle={{ fontSize: 11, paddingTop: 8 }} />
             <Bar dataKey="bTech" name="B.Tech." stackId="p" fill={PROGRAM_COLORS.bTech} radius={[0, 0, 0, 0]} />

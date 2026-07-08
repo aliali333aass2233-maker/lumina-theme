@@ -74,7 +74,7 @@ function StartupsLanding({
       <div aria-hidden className="absolute inset-0 -z-0" style={{
         background: "radial-gradient(ellipse at 20% 10%, rgba(80,50,180,0.35), transparent 55%)," +
           "radial-gradient(ellipse at 80% 90%, rgba(20,90,120,0.32), transparent 55%)," +
-          "linear-gradient(180deg, #060812 0%, #08100c 55%, #060812 100%)",
+          "linear-gradient(180deg, var(--ambient-base) 0%, var(--ambient-base) 100%)",
       }} />
       <div aria-hidden className="absolute right-0 top-14 opacity-60 pointer-events-none" style={{ width: 520, height: 520 }}>
         <CssGlobe markers={STARTUP_CITIES.map((c) => ({ ...c, color: "rgba(200,120,255,0.7)" }))} size={520} showArcs autoRotateSpeed={0.12} />
@@ -86,7 +86,7 @@ function StartupsLanding({
           <div className="text-[10px] font-semibold tracking-[0.32em] uppercase text-violet-300/80">
             IIT Bombay
           </div>
-          <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-tight text-white">
+          <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-tight text-foreground">
             Startup Ventures{" "}
             <span
               className="bg-clip-text text-transparent"
@@ -95,13 +95,13 @@ function StartupsLanding({
               Showcase
             </span>
           </h1>
-          <p className="mt-0.5 text-[12px] text-white/60 max-w-2xl">
+          <p className="mt-0.5 text-[12px] text-foreground/60 max-w-2xl">
             200+ companies across 20 sectors, built by IIT-B alumni.
           </p>
         </div>
 
         {/* Cover Flow */}
-        <div className="relative flex-1 min-h-0 rounded-2xl border border-white/10 bg-black/50 backdrop-blur-sm overflow-hidden flex flex-col items-center justify-center px-2 py-3">
+        <div className="relative flex-1 min-h-0 rounded-2xl border border-foreground/10 bg-background/50 backdrop-blur-sm overflow-hidden flex flex-col items-center justify-center px-2 py-3">
           <div aria-hidden className="absolute pointer-events-none" style={{
             left: "50%", top: "42%", transform: "translate(-50%,-50%)", width: 420, height: 420, filter: "blur(2px)", opacity: 0.5,
           }}>
@@ -119,15 +119,15 @@ function StartupsLanding({
 
           {/* Focused sector info */}
           <div className="mt-2 max-w-2xl text-center px-4">
-            <h2 className="text-lg sm:text-xl font-semibold text-white leading-tight">
+            <h2 className="text-lg sm:text-xl font-semibold text-foreground leading-tight">
               {active.name}
             </h2>
-            <p className="mt-1 text-[12px] text-white/70">
-              {active.tagline} · <span className="text-white/90 font-semibold">{active.startups.length} ventures</span>
+            <p className="mt-1 text-[12px] text-foreground/70">
+              {active.tagline} · <span className="text-foreground/90 font-semibold">{active.startups.length} ventures</span>
             </p>
             <div className="mt-1.5 flex flex-wrap justify-center gap-1.5">
               {active.startups.slice(0, 5).map((s) => (
-                <span key={s.name} className="text-[10px] px-2 py-0.5 rounded-full border border-white/15 bg-white/[0.04] text-white/80">
+                <span key={s.name} className="text-[10px] px-2 py-0.5 rounded-full border border-foreground/15 bg-foreground/[0.04] text-foreground/80">
                   {s.name}
                 </span>
               ))}
@@ -159,7 +159,7 @@ function SectorDetail({ sector, onBack }: { sector: StartupSector; onBack: () =>
       <div aria-hidden className="absolute inset-0 -z-0" style={{
         background: `radial-gradient(ellipse at 20% 10%, ${sector.color}25, transparent 55%),` +
           `radial-gradient(ellipse at 80% 90%, ${sector.color}18, transparent 55%),` +
-          `linear-gradient(180deg, #060812 0%, #08100c 55%, #060812 100%)`,
+          `linear-gradient(180deg, var(--ambient-base) 0%, var(--ambient-base) 100%)`,
       }} />
 
       <div className="relative z-10 flex-1 min-h-0 flex flex-col px-4 sm:px-6 py-3 overflow-y-auto">
@@ -167,7 +167,7 @@ function SectorDetail({ sector, onBack }: { sector: StartupSector; onBack: () =>
           <button
             onClick={onBack}
             aria-label="Back"
-            className="h-9 w-9 rounded-full border border-white/15 bg-black/60 hover:bg-black hover:border-white/40 flex items-center justify-center text-white transition-colors"
+            className="h-9 w-9 rounded-full border border-foreground/15 bg-background/60 hover:bg-background hover:border-foreground/40 flex items-center justify-center text-foreground transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
               <path d="M15 6l-6 6 6 6" />
@@ -177,8 +177,8 @@ function SectorDetail({ sector, onBack }: { sector: StartupSector; onBack: () =>
             <div className="text-[10px] font-semibold tracking-[0.3em] uppercase" style={{ color: sector.color }}>
               Sector
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-white leading-tight">{sector.name}</h1>
-            <p className="text-[12px] text-white/60">{sector.tagline}</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">{sector.name}</h1>
+            <p className="text-[12px] text-foreground/60">{sector.tagline}</p>
           </div>
         </div>
 
@@ -202,19 +202,19 @@ function StartupCard({ startup, accent }: { startup: Startup; accent: string }) 
       <div className="p-5 h-full flex flex-col">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <div className="text-base font-semibold text-white truncate">{startup.name}</div>
-            <div className="text-[11px] text-white/60 truncate">
+            <div className="text-base font-semibold text-foreground truncate">{startup.name}</div>
+            <div className="text-[11px] text-foreground/60 truncate">
               {startup.founder}
             </div>
-            <div className="text-[10px] text-white/45 truncate">
+            <div className="text-[10px] text-foreground/45 truncate">
               {startup.branch}
             </div>
           </div>
         </div>
-        <p className="mt-3 text-[12px] text-white/80 leading-relaxed">
+        <p className="mt-3 text-[12px] text-foreground/80 leading-relaxed">
           {startup.description}
         </p>
-        <p className="mt-2 text-[11px] italic text-white/60 leading-relaxed">
+        <p className="mt-2 text-[11px] italic text-foreground/60 leading-relaxed">
           &ldquo;{startup.motivation}&rdquo;
         </p>
         {startup.reports && startup.reports.length > 0 ? (
@@ -225,7 +225,7 @@ function StartupCard({ startup, accent }: { startup: Startup; accent: string }) 
                 href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] px-2 py-0.5 rounded-full border border-white/15 bg-white/[0.04] text-white/75 hover:text-white hover:border-white/40 transition-colors"
+                className="text-[10px] px-2 py-0.5 rounded-full border border-foreground/15 bg-foreground/[0.04] text-foreground/75 hover:text-foreground hover:border-foreground/40 transition-colors"
               >
                 {r.label} ↗
               </a>
@@ -249,7 +249,7 @@ function StartupCard({ startup, accent }: { startup: Startup; accent: string }) 
             </svg>
           </a>
         ) : (
-          <div className="mt-auto pt-3 text-center text-[11px] text-white/40 italic">
+          <div className="mt-auto pt-3 text-center text-[11px] text-foreground/40 italic">
             Website coming soon
           </div>
         )}

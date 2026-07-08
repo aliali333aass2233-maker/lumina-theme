@@ -50,7 +50,7 @@ function SectorsPage() {
           style={{ boxShadow: `inset 0 0 40px ${active.color}22` }}
         >
           <div className="flex items-start gap-3">
-            <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-white/10">
+            <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-foreground/10">
               <img src={active.image} alt={active.name} className="w-full h-full object-cover" width={112} height={112} />
             </div>
             <div className="min-w-0">
@@ -64,7 +64,7 @@ function SectorsPage() {
 
           <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{active.narrative}</p>
 
-          <div className="mt-3 rounded-lg border border-white/10 bg-white/[0.02] p-2.5">
+          <div className="mt-3 rounded-lg border border-foreground/10 bg-foreground/[0.02] p-2.5">
             <div className="text-[9px] label-caps text-muted-foreground">Typical package band</div>
             <div className="text-sm font-semibold" style={{ color: active.color }}>{active.packageBand}</div>
           </div>
@@ -75,7 +75,7 @@ function SectorsPage() {
               {active.companiesList.map((c) => (
                 <span
                   key={c}
-                  className="text-[10px] px-2 py-0.5 rounded-full border border-white/10 bg-white/[0.03]"
+                  className="text-[10px] px-2 py-0.5 rounded-full border border-foreground/10 bg-foreground/[0.03]"
                   style={{ color: active.color }}
                 >
                   {c}
@@ -96,10 +96,10 @@ function SectorsPage() {
         </div>
         <ResponsiveContainer width="100%" height={320}>
           <BarChart data={SECTOR_PROGRAM} margin={{ top: 8, right: 8, left: -14, bottom: 40 }}>
-            <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} strokeDasharray="3 3" />
+            <CartesianGrid stroke="var(--chart-grid)" vertical={false} strokeDasharray="3 3" />
             <XAxis
               dataKey="sector"
-              stroke="rgba(255,255,255,0.55)"
+              stroke="var(--chart-axis)"
               fontSize={11}
               tickLine={false}
               axisLine={false}
@@ -108,15 +108,15 @@ function SectorsPage() {
               textAnchor="end"
               height={70}
             />
-            <YAxis stroke="rgba(255,255,255,0.5)" fontSize={11} tickLine={false} axisLine={false} />
+            <YAxis stroke="var(--chart-axis)" fontSize={11} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{
-                background: "rgba(10,10,15,0.94)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "var(--chart-tooltip-bg)",
+                border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
                 borderRadius: 8,
                 fontSize: 11,
               }}
-              cursor={{ fill: "rgba(255,255,255,0.04)" }}
+              cursor={{ fill: "var(--chart-cursor)" }}
             />
             <Legend wrapperStyle={{ fontSize: 11, paddingTop: 8 }} />
             <Bar dataKey="bTech" name="B.Tech." stackId="p" fill={PROGRAM_COLORS.bTech} radius={[0, 0, 0, 0]} />
@@ -133,9 +133,9 @@ function SectorsPage() {
           <div className="label-caps text-primary">Sector-wise offers · full table</div>
           <div className="text-[10px] text-muted-foreground">Table 12, p.13</div>
         </div>
-        <div className="overflow-hidden rounded-lg border border-white/10">
+        <div className="overflow-hidden rounded-lg border border-foreground/10">
           <table className="w-full text-[11px]">
-            <thead className="bg-white/[0.03] text-muted-foreground">
+            <thead className="bg-foreground/[0.03] text-muted-foreground">
               <tr>
                 <th className="text-left px-3 py-2 font-medium">Sector</th>
                 <th className="text-right px-3 py-2 font-medium" style={{ color: PROGRAM_COLORS.bTech }}>B.Tech</th>
@@ -147,7 +147,7 @@ function SectorsPage() {
             </thead>
             <tbody>
               {SECTOR_PROGRAM.map((r) => (
-                <tr key={r.sector} className="border-t border-white/5 hover:bg-white/[0.02]">
+                <tr key={r.sector} className="border-t border-foreground/5 hover:bg-foreground/[0.02]">
                   <td className="px-3 py-1.5">{r.sector}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums">{r.bTech}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums">{r.dual}</td>

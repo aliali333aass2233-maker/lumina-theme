@@ -321,7 +321,7 @@ function PreviewRanksTable({ variant = "hero" }: { variant?: "hero" | "compact" 
 
   return (
     <div className="glow-card rounded-2xl overflow-hidden relative bg-background">
-      <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-white/[0.02]">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-foreground/[0.02]">
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-primary animate-pulse-dot" />
           <span className="label-caps text-primary">Live · JoSAA 2025</span>
@@ -501,7 +501,7 @@ function SectionPlacements() {
       link="See full placement data"
     >
       <div className="glow-card rounded-2xl overflow-hidden bg-background">
-        <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-white/[0.02]">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-foreground/[0.02]">
           <div className="label-caps">Placement Report · 2024–25</div>
           <span className="h-2 w-2 rounded-full bg-primary animate-pulse-dot" />
         </div>

@@ -25,8 +25,8 @@ function CompanyBadge(props: any) {
   if (value == null) return null;
   return (
     <g transform={`translate(${x + width / 2},${y - 12})`}>
-      <rect x={-20} y={-10} width={40} height={16} rx={8} fill="rgba(10,10,15,0.85)" stroke="rgba(255,255,255,0.15)" />
-      <text x={0} y={2} textAnchor="middle" fontSize={9} fontWeight={600} fill="rgba(255,255,255,0.75)">
+      <rect x={-20} y={-10} width={40} height={16} rx={8} fill="var(--chart-tooltip-bg)" stroke="var(--chart-tooltip-border)" />
+      <text x={0} y={2} textAnchor="middle" fontSize={9} fontWeight={600} fill="var(--chart-axis)">
         {value} co.
       </text>
     </g>
@@ -39,10 +39,10 @@ function SalaryTooltip({ active, payload }: any) {
   const d = payload[0].payload;
   return (
     <div style={{
-      background: "rgba(10,10,15,0.94)", border: "1px solid rgba(255,255,255,0.1)",
+      background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
       borderRadius: 8, fontSize: 11, padding: "8px 10px",
     }}>
-      <div style={{ color: "rgba(255,255,255,0.6)", marginBottom: 4 }}>{d.label}</div>
+      <div style={{ color: "var(--chart-axis)", marginBottom: 4 }}>{d.label}</div>
       <div>Offers: <b>{d.Offers}</b></div>
       <div>Companies: <b>{d.Companies}</b></div>
     </div>
@@ -103,10 +103,10 @@ function CompensationPage() {
           <div className="flex-1 min-h-0">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={salaryData} margin={{ top: 24, right: 8, left: -14, bottom: 0 }}>
-                <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} strokeDasharray="3 3" />
-                <XAxis dataKey="label" stroke="rgba(255,255,255,0.55)" fontSize={10} tickLine={false} axisLine={false} />
-                <YAxis stroke="rgba(255,255,255,0.5)" fontSize={10} tickLine={false} axisLine={false} />
-                <Tooltip content={<SalaryTooltip />} cursor={{ fill: "rgba(255,255,255,0.04)" }} />
+                <CartesianGrid stroke="var(--chart-grid)" vertical={false} strokeDasharray="3 3" />
+                <XAxis dataKey="label" stroke="var(--chart-axis)" fontSize={10} tickLine={false} axisLine={false} />
+                <YAxis stroke="var(--chart-axis)" fontSize={10} tickLine={false} axisLine={false} />
+                <Tooltip content={<SalaryTooltip />} cursor={{ fill: "var(--chart-cursor)" }} />
                 <Bar dataKey="Offers" radius={[6, 6, 0, 0]} barSize={40}>
                   {salaryData.map((d, i) => (
                     <Cell key={i} fill={d.color} style={{ filter: `drop-shadow(0 4px 10px ${d.color}66)` }} />
@@ -127,15 +127,15 @@ function CompensationPage() {
           <div className="flex-1 min-h-0">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={yoyData} margin={{ top: 8, right: 8, left: -14, bottom: 0 }}>
-                <CartesianGrid stroke="rgba(255,255,255,0.05)" vertical={false} strokeDasharray="3 3" />
-                <XAxis dataKey="label" stroke="rgba(255,255,255,0.55)" fontSize={10} tickLine={false} axisLine={false} />
-                <YAxis stroke="rgba(255,255,255,0.5)" fontSize={10} tickLine={false} axisLine={false} />
+                <CartesianGrid stroke="var(--chart-grid)" vertical={false} strokeDasharray="3 3" />
+                <XAxis dataKey="label" stroke="var(--chart-axis)" fontSize={10} tickLine={false} axisLine={false} />
+                <YAxis stroke="var(--chart-axis)" fontSize={10} tickLine={false} axisLine={false} />
                 <Tooltip
                   contentStyle={{
-                    background: "rgba(10,10,15,0.94)", border: "1px solid rgba(255,255,255,0.1)",
+                    background: "var(--chart-tooltip-bg)", border: "1px solid var(--chart-tooltip-border)", color: "var(--chart-tooltip-text)",
                     borderRadius: 8, fontSize: 11,
                   }}
-                  cursor={{ fill: "rgba(255,255,255,0.04)" }}
+                  cursor={{ fill: "var(--chart-cursor)" }}
                 />
                 <Legend wrapperStyle={{ fontSize: 9 }} />
                 <Bar dataKey="B.Tech." fill="#ff2d55" radius={[3, 3, 0, 0]} />
@@ -180,9 +180,9 @@ function CompensationPage() {
             <div className="label-caps text-primary text-[11px]">Year-on-year highlights</div>
             <div className="text-[10px] text-muted-foreground">Table 10, p.11</div>
           </div>
-          <div className="flex-1 min-h-0 overflow-hidden rounded-lg border border-white/10">
+          <div className="flex-1 min-h-0 overflow-hidden rounded-lg border border-foreground/10">
             <table className="w-full text-sm">
-              <thead className="bg-white/[0.03] text-muted-foreground text-xs">
+              <thead className="bg-foreground/[0.03] text-muted-foreground text-xs">
                 <tr>
                   <th className="text-left px-4 py-2 font-medium">Metric</th>
                   <th className="text-right px-4 py-2 font-medium">2022-23</th>
@@ -195,7 +195,7 @@ function CompensationPage() {
                   const delta = r.curr - r.prev;
                   const pos = delta >= 0;
                   return (
-                    <tr key={r.key} className="border-t border-white/5">
+                    <tr key={r.key} className="border-t border-foreground/5">
                       <td className="px-4 py-2">{r.key}</td>
                       <td className="px-4 py-2 text-right tabular-nums">{r.prev}</td>
                       <td className="px-4 py-2 text-right tabular-nums font-semibold">{r.curr}</td>

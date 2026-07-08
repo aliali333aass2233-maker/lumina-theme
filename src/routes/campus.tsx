@@ -241,7 +241,7 @@ function AmbientAtmosphere() {
       dot.style.width = `${size}px`;
       dot.style.height = `${size}px`;
       dot.style.borderRadius = "50%";
-      dot.style.background = "rgba(255,255,255,0.5)";
+      dot.style.background = "var(--grid-line)";
       dot.style.animation = `twinkle ${3 + Math.random() * 4}s ease-in-out ${Math.random() * 4}s infinite`;
       el.appendChild(dot);
     }
@@ -249,10 +249,10 @@ function AmbientAtmosphere() {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 20%, rgba(120,20,20,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(20,40,90,0.14) 0%, transparent 60%), #08090b" }} />
-      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "56px 56px" }} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 20%, rgba(120,20,20,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(20,40,90,0.14) 0%, transparent 60%), var(--ambient-base)" }} />
+      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)", backgroundSize: "56px 56px" }} />
       <div ref={starsRef} className="absolute inset-0" />
-      <div className="absolute inset-0" style={{ boxShadow: "inset 0 0 220px 60px rgba(0,0,0,0.75)" }} />
+      <div className="absolute inset-0" style={{ boxShadow: "inset 0 0 220px 60px var(--vignette)" }} />
       <style>{`@keyframes twinkle { 0%,100% { opacity: 0.15; } 50% { opacity: 0.9; } }`}</style>
     </div>
   );

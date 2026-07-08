@@ -110,7 +110,7 @@ function RanksPage() {
                 </thead>
                 <tbody>
                   {filtered.map((r, i) => (
-                    <tr key={i} className="border-b border-border/50 hover:bg-white/[0.02] transition-colors">
+                    <tr key={i} className="border-b border-border/50 hover:bg-foreground/[0.02] transition-colors">
                       <td className="px-5 py-3.5 text-foreground/90 whitespace-nowrap">{r.institute}</td>
                       <td className="px-5 py-3.5 text-foreground/90">{r.branch}</td>
                       <td className="px-5 py-3.5 text-muted-foreground whitespace-nowrap">{r.category}</td>

@@ -59,7 +59,7 @@ function ConnectBackground() {
         background:
           "radial-gradient(ellipse at 20% 10%, rgba(180, 20, 30, 0.35), transparent 55%)," +
           "radial-gradient(ellipse at 80% 90%, rgba(20, 90, 55, 0.32), transparent 55%)," +
-          "linear-gradient(180deg, #0a0605 0%, #08100c 55%, #0a0605 100%)",
+          "linear-gradient(180deg, var(--ambient-base) 0%, var(--ambient-base) 100%)",
       }}
     >
       <div
@@ -101,7 +101,7 @@ function AlumniTickerCard() {
 
   return (
     <div
-      className="relative w-full rounded-2xl border border-white/12 bg-black/40 backdrop-blur-sm overflow-hidden flex flex-col p-4 sm:p-5"
+      className="relative w-full rounded-2xl border border-foreground/12 bg-background/40 backdrop-blur-sm overflow-hidden flex flex-col p-4 sm:p-5"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       style={{ boxShadow: `0 20px 60px -30px ${accent}55` }}
@@ -115,7 +115,7 @@ function AlumniTickerCard() {
           Live · IITBAA
         </div>
       </div>
-      <h2 className="mt-2 text-lg sm:text-xl font-semibold tracking-tight text-white">
+      <h2 className="mt-2 text-lg sm:text-xl font-semibold tracking-tight text-foreground">
         IIT Bombay Connect
       </h2>
 
@@ -131,19 +131,19 @@ function AlumniTickerCard() {
           >
             {item.category}
           </span>
-          <span className="text-[10px] text-white/40">
+          <span className="text-[10px] text-foreground/40">
             {idx + 1} / {ALUMNI_TICKER.length}
           </span>
         </div>
-        <div className="mt-2 text-sm sm:text-base font-semibold text-white leading-snug">
+        <div className="mt-2 text-sm sm:text-base font-semibold text-foreground leading-snug">
           {item.topic}
         </div>
-        <p className="mt-1.5 text-[12px] text-white/70 leading-relaxed line-clamp-3">
+        <p className="mt-1.5 text-[12px] text-foreground/70 leading-relaxed line-clamp-3">
           {item.description}
         </p>
       </div>
 
-      <div className="mt-3 border-t border-white/10 pt-3 text-[11px] text-white/60 leading-snug">
+      <div className="mt-3 border-t border-foreground/10 pt-3 text-[11px] text-foreground/60 leading-snug">
         Visit the official IIT Bombay Alumni Association site for better engagement.
       </div>
     </div>
@@ -191,10 +191,10 @@ function NotificationToaster() {
             : "opacity-0 -translate-y-3 pointer-events-none"
         }`}
       >
-        <div className="rounded-xl border border-white/15 bg-black/70 backdrop-blur-md px-3.5 py-2.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]">
+        <div className="rounded-xl border border-foreground/15 bg-background/70 backdrop-blur-md px-3.5 py-2.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]">
           <div className="flex items-start gap-2.5">
             <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0 shadow-[0_0_10px_rgba(52,211,153,0.9)]" />
-            <div className="text-[12px] text-white/85 leading-snug">
+            <div className="text-[12px] text-foreground/85 leading-snug">
               {CONNECT_NOTIFICATIONS[idx]}
             </div>
           </div>
@@ -212,7 +212,7 @@ function BigConnectHeading() {
       <div className="text-[10px] font-semibold tracking-[0.32em] uppercase text-red-300/80">
         For Students
       </div>
-      <h1 className="mt-2 text-[clamp(2rem,5.2vw,4.4rem)] font-black leading-[0.95] tracking-tight text-white">
+      <h1 className="mt-2 text-[clamp(2rem,5.2vw,4.4rem)] font-black leading-[0.95] tracking-tight text-foreground">
         For better engagement,{" "}
         <span
           className="bg-clip-text text-transparent"
@@ -278,7 +278,7 @@ function LandingView({
         </div>
 
         {/* Cover flow area — fills remaining space, no overlap with header */}
-        <div className="relative flex-1 min-h-0 rounded-3xl border border-white/10 bg-black/45 overflow-hidden flex flex-col items-center justify-center px-4 py-4">
+        <div className="relative flex-1 min-h-0 rounded-3xl border border-foreground/10 bg-background/45 overflow-hidden flex flex-col items-center justify-center px-4 py-4">
           {/* Sparkles halo behind focused center card */}
           <div
             aria-hidden
@@ -314,13 +314,13 @@ function LandingView({
             >
               Sector
             </div>
-            <h2 className="mt-1 text-lg sm:text-xl font-semibold text-white leading-tight">
+            <h2 className="mt-1 text-lg sm:text-xl font-semibold text-foreground leading-tight">
               {active.name}
             </h2>
-            <p className="mt-1 text-[12px] text-white/75 leading-snug">
-              <span className="text-white font-semibold">{companies} companies</span>
+            <p className="mt-1 text-[12px] text-foreground/75 leading-snug">
+              <span className="text-foreground font-semibold">{companies} companies</span>
               {" · "}
-              <span className="text-white font-semibold">
+              <span className="text-foreground font-semibold">
                 {Math.max(100, students * 12)}+ students
               </span>{" "}
               ready to connect.
@@ -372,24 +372,24 @@ function StudentPager({ sectorKey, color }: { sectorKey: string; color: string }
           >
             Meet the students · {roster.length} available
           </div>
-          <div className="text-sm text-white/70">
+          <div className="text-sm text-foreground/70">
             Two at a time · auto-cycles every 7s
           </div>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setPage((p) => (p - 1 + pageCount) % pageCount)}
-            className="h-8 w-8 rounded-full border border-white/15 bg-black/40 text-white hover:border-white/40 flex items-center justify-center"
+            className="h-8 w-8 rounded-full border border-foreground/15 bg-background/40 text-foreground hover:border-foreground/40 flex items-center justify-center"
             aria-label="Previous students"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" /></svg>
           </button>
-          <div className="text-xs text-white/60 tabular-nums">
+          <div className="text-xs text-foreground/60 tabular-nums">
             {page + 1} / {pageCount}
           </div>
           <button
             onClick={() => setPage((p) => (p + 1) % pageCount)}
-            className="h-8 w-8 rounded-full border border-white/15 bg-black/40 text-white hover:border-white/40 flex items-center justify-center"
+            className="h-8 w-8 rounded-full border border-foreground/15 bg-background/40 text-foreground hover:border-foreground/40 flex items-center justify-center"
             aria-label="Next students"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" /></svg>
@@ -410,7 +410,7 @@ function StudentCard({ student, color }: { student: SectorStudent; color: string
   const bg = `linear-gradient(135deg, hsl(${student.hue} 70% 45%), hsl(${(student.hue + 30) % 360} 70% 30%))`;
   return (
     <div
-      className="animate-in fade-in slide-in-from-bottom-2 duration-500 rounded-2xl border border-white/12 bg-white/[0.03] backdrop-blur-sm p-5 flex flex-col overflow-hidden"
+      className="animate-in fade-in slide-in-from-bottom-2 duration-500 rounded-2xl border border-foreground/12 bg-foreground/[0.03] backdrop-blur-sm p-5 flex flex-col overflow-hidden"
       style={{ boxShadow: `0 20px 40px -25px ${color}88` }}
     >
       <div className="flex items-start gap-3 shrink-0">
@@ -421,10 +421,10 @@ function StudentCard({ student, color }: { student: SectorStudent; color: string
           {student.initials}
         </div>
         <div className="min-w-0 flex-1">
-          <div className="text-base font-semibold text-white truncate">
+          <div className="text-base font-semibold text-foreground truncate">
             {student.name}
           </div>
-          <div className="text-[12px] text-white/60 truncate">
+          <div className="text-[12px] text-foreground/60 truncate">
             {student.branch} · {student.year} · CGPA {student.cgpa}
           </div>
         </div>
@@ -447,19 +447,19 @@ function StudentCard({ student, color }: { student: SectorStudent; color: string
       </div>
 
       <div className="mt-3">
-        <div className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white/50">
+        <div className="text-[10px] font-semibold tracking-[0.28em] uppercase text-foreground/50">
           Projects
         </div>
-        <div className="text-[12px] text-white/80 leading-snug mt-0.5">
+        <div className="text-[12px] text-foreground/80 leading-snug mt-0.5">
           {student.projects}
         </div>
       </div>
 
       <div className="mt-3 flex-1 min-h-0">
-        <div className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white/50">
+        <div className="text-[10px] font-semibold tracking-[0.28em] uppercase text-foreground/50">
           About
         </div>
-        <p className="text-[12px] text-white/75 leading-relaxed mt-0.5">
+        <p className="text-[12px] text-foreground/75 leading-relaxed mt-0.5">
           {student.blurb}
         </p>
       </div>
@@ -494,13 +494,13 @@ function InfoCell({
   accent?: string;
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
-      <div className="text-[9px] font-semibold tracking-[0.2em] uppercase text-white/45">
+    <div className="rounded-lg border border-foreground/10 bg-foreground/[0.03] px-2.5 py-1.5">
+      <div className="text-[9px] font-semibold tracking-[0.2em] uppercase text-foreground/45">
         {label}
       </div>
       <div
         className="text-[12px] font-semibold truncate"
-        style={{ color: accent ?? "white" }}
+        style={{ color: accent ?? "var(--foreground)" }}
       >
         {value}
       </div>
@@ -537,8 +537,8 @@ function FeedbackForm({ sector }: { sector: Sector }) {
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
-        <div className="mt-4 text-lg font-semibold text-white">You're on the list</div>
-        <p className="mt-2 text-sm text-white/70 max-w-sm">
+        <div className="mt-4 text-lg font-semibold text-foreground">You're on the list</div>
+        <p className="mt-2 text-sm text-foreground/70 max-w-sm">
           We'll match you with the right {sector.name} alumni and reach out on {form.email}.
         </p>
       </div>
@@ -548,7 +548,7 @@ function FeedbackForm({ sector }: { sector: Sector }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-2xl border border-white/12 bg-white/[0.03] p-5 sm:p-6 backdrop-blur-sm"
+      className="rounded-2xl border border-foreground/12 bg-foreground/[0.03] p-5 sm:p-6 backdrop-blur-sm"
       style={{ boxShadow: `0 20px 60px -30px ${sector.color}55` }}
     >
       <div
@@ -557,11 +557,11 @@ function FeedbackForm({ sector }: { sector: Sector }) {
       >
         Connect Form
       </div>
-      <div className="mt-1 text-lg font-semibold text-white">
+      <div className="mt-1 text-lg font-semibold text-foreground">
         Connect with{" "}
         <span style={{ color: sector.color }}>{sector.name}</span> alumni
       </div>
-      <p className="text-[11px] text-white/55 mt-1">
+      <p className="text-[11px] text-foreground/55 mt-1">
         Answer a few questions and we'll route you to the right people.
       </p>
 
@@ -582,7 +582,7 @@ function FeedbackForm({ sector }: { sector: Sector }) {
             className={inputCls}
           >
             {domains.map((d) => (
-              <option key={d} value={d} className="bg-black">
+              <option key={d} value={d} className="bg-background">
                 {d}
               </option>
             ))}
@@ -601,7 +601,7 @@ function FeedbackForm({ sector }: { sector: Sector }) {
             placeholder="Branch, year, projects, internships and what you'd like to explore in this sector."
             className={`${inputCls} min-h-[96px] resize-y`}
           />
-          <div className="text-[10px] text-white/40 mt-1 text-right">
+          <div className="text-[10px] text-foreground/40 mt-1 text-right">
             {form.about.length} / 1200
           </div>
         </Field>
@@ -631,7 +631,7 @@ function FeedbackForm({ sector }: { sector: Sector }) {
           />
         </Field>
         <Field label="Resume (optional)">
-          <label className="mt-1 flex items-center gap-2 rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-white/70 cursor-pointer hover:border-white/40">
+          <label className="mt-1 flex items-center gap-2 rounded-lg border border-foreground/15 bg-background/40 px-3 py-2 text-sm text-foreground/70 cursor-pointer hover:border-foreground/40">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16" /></svg>
             <span className="truncate">
               {form.resume?.name ?? "Upload PDF / DOC"}
@@ -667,7 +667,7 @@ function FeedbackForm({ sector }: { sector: Sector }) {
 }
 
 const inputCls =
-  "mt-1 w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-white/50 focus:outline-none";
+  "mt-1 w-full rounded-lg border border-foreground/15 bg-background/40 px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 focus:border-foreground/50 focus:outline-none";
 
 function Field({
   label,
@@ -678,7 +678,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-white/55">
+      <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-foreground/55">
         {label}
       </div>
       {children}
@@ -707,7 +707,7 @@ function SectorDetail({
             <button
               onClick={onBack}
               aria-label="Back to sectors"
-              className="mt-1 shrink-0 h-9 w-9 rounded-full border border-white/15 bg-black/60 hover:bg-black hover:border-white/40 flex items-center justify-center text-white transition-colors"
+              className="mt-1 shrink-0 h-9 w-9 rounded-full border border-foreground/15 bg-background/60 hover:bg-background hover:border-foreground/40 flex items-center justify-center text-foreground transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M15 6l-6 6 6 6" />
@@ -735,8 +735,8 @@ function SectorDetail({
           >
             Sector
           </div>
-          <div className="text-xl font-semibold text-white">{sector.name}</div>
-          <div className="ml-auto text-[11px] text-white/60">
+          <div className="text-xl font-semibold text-foreground">{sector.name}</div>
+          <div className="ml-auto text-[11px] text-foreground/60">
             {sector.companies} companies · {sector.selections} selections ·{" "}
             {SECTOR_STUDENTS[sector.key]?.length ?? 0} students available
           </div>

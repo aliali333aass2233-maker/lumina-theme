@@ -42,7 +42,7 @@ function BranchDetail() {
           href={branch.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 mt-1.5 px-3 py-1 rounded-full text-[10px] border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors"
+          className="inline-flex items-center gap-1.5 mt-1.5 px-3 py-1 rounded-full text-[10px] border border-foreground/20 text-foreground/60 hover:text-foreground hover:border-foreground/40 transition-colors"
         >
           Visit Official Site ↗
         </a>
@@ -124,16 +124,16 @@ function BranchDetail() {
                     { l: "Participated", v: branch.participated },
                     { l: "Placed", v: branch.placed },
                   ].map((s) => (
-                    <div key={s.l} className="rounded-lg border border-white/10 bg-white/[0.02] p-2 text-center">
+                    <div key={s.l} className="rounded-lg border border-foreground/10 bg-foreground/[0.02] p-2 text-center">
                       <div className="text-[9px] text-muted-foreground uppercase">{s.l}</div>
                       <div className="text-lg font-semibold tabular-nums" style={{ color: branch.accent }}>{s.v}</div>
                     </div>
                   ))}
                 </div>
-                <div className="rounded-lg border border-white/10 bg-white/[0.02] p-3">
+                <div className="rounded-lg border border-foreground/10 bg-foreground/[0.02] p-3">
                   <div className="text-[9px] text-muted-foreground uppercase mb-2">Placement % vs Institute avg</div>
                   <div className="flex items-center gap-3">
-                    <div className="flex-1 bg-white/10 rounded-full h-2">
+                    <div className="flex-1 bg-foreground/10 rounded-full h-2">
                       <div
                         className="h-2 rounded-full"
                         style={{
@@ -148,14 +148,14 @@ function BranchDetail() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 mt-2">
-                    <div className="flex-1 bg-white/10 rounded-full h-2">
-                      <div className="h-2 rounded-full bg-white/40" style={{ width: "74.53%" }} />
+                    <div className="flex-1 bg-foreground/10 rounded-full h-2">
+                      <div className="h-2 rounded-full bg-foreground/40" style={{ width: "74.53%" }} />
                     </div>
-                    <div className="text-sm font-semibold tabular-nums text-white/50">74.5%</div>
+                    <div className="text-sm font-semibold tabular-nums text-foreground/50">74.5%</div>
                   </div>
                   <div className="flex justify-between text-[8px] text-muted-foreground mt-1">
                     <span style={{ color: branch.accent }}>This dept</span>
-                    <span className="text-white/40">Institute avg</span>
+                    <span className="text-foreground/40">Institute avg</span>
                   </div>
                 </div>
                 <div className="text-[9px] text-muted-foreground opacity-60 text-center">
@@ -172,7 +172,7 @@ function BranchDetail() {
             <div className="label-caps text-primary mb-2 text-[10px] shrink-0">Programs at a glance</div>
             <div className="grid grid-cols-2 gap-2 overflow-y-auto min-h-0 pr-1 scrollbar-hide">
               {cards.map((p: BranchProgram) => (
-                <div key={p.program} className="rounded-lg p-2 border border-white/10 bg-white/[0.02]">
+                <div key={p.program} className="rounded-lg p-2 border border-foreground/10 bg-foreground/[0.02]">
                   <div className="text-[10px] font-semibold text-foreground truncate">{p.program}</div>
                   <div className="grid grid-cols-3 gap-1 mt-1 text-[10px]">
                     <div><div className="text-muted-foreground text-[8px] uppercase">Part.</div><div className="tabular-nums font-semibold">{p.participated}</div></div>
@@ -194,7 +194,7 @@ function BranchDetail() {
                 { l: "Average", v: market.average, c: "#10b981" },
                 { l: "Median", v: market.median, c: "#0ea5e9" },
               ].map((m) => (
-                <div key={m.l} className="rounded-lg border border-white/10 bg-white/[0.02] p-2">
+                <div key={m.l} className="rounded-lg border border-foreground/10 bg-foreground/[0.02] p-2">
                   <div className="text-[9px] label-caps text-muted-foreground">{m.l}</div>
                   <div className="text-sm font-semibold tabular-nums" style={{ color: m.c, textShadow: `0 0 10px ${m.c}55` }}>{m.v}</div>
                 </div>

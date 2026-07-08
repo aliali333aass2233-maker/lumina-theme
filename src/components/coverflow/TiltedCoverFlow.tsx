@@ -111,7 +111,7 @@ export function TiltedCoverFlow({
 
       <div className="mt-2 flex items-center justify-center gap-3">
         <ArrowBtn dir="left" onClick={() => go(-1)} disabled={focus === 0} />
-        <div className="text-[11px] tabular-nums text-white/60 min-w-[60px] text-center">
+        <div className="text-[11px] tabular-nums text-foreground/60 min-w-[60px] text-center">
           {focus + 1} / {items.length}
         </div>
         <ArrowBtn dir="right" onClick={() => go(1)} disabled={focus === items.length - 1} />

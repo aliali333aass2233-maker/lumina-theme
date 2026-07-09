@@ -878,6 +878,7 @@ import {
   ALUMNI, avatarUrl, INSTITUTE_FEATURES, PLACEMENTS, STARTUPS, UPDATE_SETS,
 } from "@/data/content";
 import { heroLiveRows, closingTrend, TREND_BRANCHES } from "@/data/josaa";
+import { SectionHeader } from "@/components/SectionHeader";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -927,7 +928,8 @@ function Landing() {
   useReveal();
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <TopNav />
+      {/* <TopNav /> */}
+      <SectionHeader />      
       <main>
         <Hero />
         <Recruiters />
@@ -947,93 +949,93 @@ function Landing() {
   );
 }
 
-function TopNav() {
-  return (
-    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 h-14 flex items-center gap-6">
-        <a href="#" className="flex items-center gap-2 shrink-0">
-          <LogoMark />
-          <span className="text-sm font-semibold tracking-tight">IIT Bombay</span>
-        </a>
-        <nav className="ml-auto min-w-0 flex-1">
-          <ul className="flex items-center gap-6 overflow-x-auto no-scrollbar text-sm text-muted-foreground justify-end">
-            {NAV_ITEMS.map((n) => {
-              if (n === "Ranks") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/ranks" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Campus") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/campus" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Fees & Scholarships") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/fees" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Trends") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/trends" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Placements") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/placements" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Top Recruiters") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/top-recruiters" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Connect") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/alumni" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              if (n === "Startups") {
-                return (
-                  <li key={n} className="shrink-0">
-                    <Link to="/startups" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
-                  </li>
-                );
-              }
-              return (
-                <li key={n} className="shrink-0">
-                  <a href={`#${n.toLowerCase().replace(/\W+/g, "-")}`} className="hover:text-foreground transition-colors whitespace-nowrap">{n}</a>
-                </li>
-              );
-            })}
-            <li className="shrink-0">
-              <Link to="/ranks" className="text-primary hover:text-primary/80 transition-colors whitespace-nowrap font-medium">
-                Ranks Explorer →
-              </Link>
-            </li>
-            <li className="shrink-0">
-              <ThemeToggle />
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  );
-}
+// function TopNav() {
+//   return (
+//     <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
+//       <div className="mx-auto max-w-7xl px-6 h-14 flex items-center gap-6">
+//         <a href="#" className="flex items-center gap-2 shrink-0">
+//           <LogoMark />
+//           <span className="text-sm font-semibold tracking-tight">IIT Bombay</span>
+//         </a>
+//         <nav className="ml-auto min-w-0 flex-1">
+//           <ul className="flex items-center gap-6 overflow-x-auto no-scrollbar text-sm text-muted-foreground justify-end">
+//             {NAV_ITEMS.map((n) => {
+//               if (n === "Ranks") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/ranks" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Campus") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/campus" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Fees & Scholarships") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/fees" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Trends") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/trends" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Placements") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/placements" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Top Recruiters") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/top-recruiters" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Connect") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/alumni" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               if (n === "Startups") {
+//                 return (
+//                   <li key={n} className="shrink-0">
+//                     <Link to="/startups" className="hover:text-foreground transition-colors whitespace-nowrap">{n}</Link>
+//                   </li>
+//                 );
+//               }
+//               return (
+//                 <li key={n} className="shrink-0">
+//                   <a href={`#${n.toLowerCase().replace(/\W+/g, "-")}`} className="hover:text-foreground transition-colors whitespace-nowrap">{n}</a>
+//                 </li>
+//               );
+//             })}
+//             <li className="shrink-0">
+//               <Link to="/ranks" className="text-primary hover:text-primary/80 transition-colors whitespace-nowrap font-medium">
+//                 Ranks Explorer →
+//               </Link>
+//             </li>
+//             <li className="shrink-0">
+//               <ThemeToggle />
+//             </li>
+//           </ul>
+//         </nav>
+//       </div>
+//     </header>
+//   );
+// }
 
 function LogoMark() {
   return (
@@ -1396,6 +1398,42 @@ function SectionPlacements() {
 }
 
 /* ---------- Campus: three rotating image slots ---------- */
+// function SectionCampus() {
+//   return (
+//     <section id="campus" className="py-32 border-t border-border">
+//       <div className="mx-auto max-w-6xl px-6">
+//         <div data-reveal className="max-w-2xl">
+//           <div className="label-caps text-primary">4.0 · Campus</div>
+//           <h2 className="mt-4 text-3xl sm:text-5xl font-semibold tracking-tight leading-[1.05]">550 acres beside Powai Lake.</h2>
+//           <p className="mt-5 text-muted-foreground leading-relaxed max-w-md">
+//             Hostels, labs, and green corridors — explore campus life at one of India's most iconic technical campuses.
+//           </p>
+//         </div>
+//         <div className="mt-12 grid md:grid-cols-3 gap-4">
+//           <div data-reveal className="md:col-span-2 glow-card rounded-2xl overflow-hidden">
+//             <RotatingImage
+//               items={campusImageSets[0]}
+//               className="w-full h-[420px]"
+//               imgClassName="object-cover"
+//               interval={5000}
+//             />
+//           </div>
+//           <div data-reveal className="grid grid-rows-2 gap-4">
+//             <div className="glow-card rounded-2xl overflow-hidden">
+//               <RotatingImage items={campusImageSets[1]} className="w-full h-full min-h-[200px]" imgClassName="object-cover" interval={5500} />
+//             </div>
+//             <div className="glow-card rounded-2xl overflow-hidden">
+//               <RotatingImage items={campusImageSets[2]} className="w-full h-full min-h-[200px]" imgClassName="object-cover" interval={6000} />
+//             </div>
+//           </div>
+//         </div>
+//         <div className="mt-8">
+//           <Link to="/campus" className="inline-flex items-center gap-2 text-sm text-primary hover:gap-3 transition-all">Explore campus <span>→</span></Link>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 function SectionCampus() {
   return (
     <section id="campus" className="py-32 border-t border-border">

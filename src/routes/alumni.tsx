@@ -780,7 +780,7 @@
 //   );
 // }
 
-
+// REFINED ONE
 
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -1359,24 +1359,256 @@ function InfoCell({
 
 /* ============================= Feedback Form ============================= */
 
+// function FeedbackForm({ sector }: { sector: Sector }) {
+//   const domains = SUB_DOMAINS[sector.key] ?? ["General interest"];
+//   const [submitted, setSubmitted] = useState(false);
+//   const [form, setForm] = useState({
+//     domain: domains[0],
+//     name: "",
+//     about: "",
+//     questions: "",
+//     email: "",
+//     resume: null as File | null,
+//   });
+
+//   const onSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) return;
+//     if (form.about.trim().length < 30) return;
+//     setSubmitted(true);
+//   };
+
+//   if (submitted) {
+//     return (
+//       <div className="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6 flex flex-col items-center justify-center text-center">
+//         <div className="h-12 w-12 rounded-full bg-emerald-500/20 border border-emerald-500/60 flex items-center justify-center">
+//           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" className="text-emerald-400">
+//             <path d="M20 6L9 17l-5-5" />
+//           </svg>
+//         </div>
+//         <div className="mt-4 text-lg font-semibold text-foreground">You're on the list</div>
+//         <p className="mt-2 text-sm text-foreground/70 max-w-sm">
+//           We'll match you with the right {sector.name} alumni and reach out on {form.email}.
+//         </p>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <form
+//       onSubmit={onSubmit}
+//       className="rounded-2xl border border-foreground/12 bg-foreground/[0.03] p-5 sm:p-6 backdrop-blur-sm"
+//       style={{ boxShadow: `0 20px 60px -30px ${sector.color}55` }}
+//     >
+//       <div
+//         className="text-[10px] font-semibold tracking-[0.3em] uppercase"
+//         style={{ color: sector.color }}
+//       >
+//         Connect Form
+//       </div>
+//       <div className="mt-1 text-lg font-semibold text-foreground">
+//         Connect with{" "}
+//         <span style={{ color: sector.color }}>{sector.name}</span> alumni
+//       </div>
+//       <p className="text-[11px] text-foreground/55 mt-1">
+//         Answer a few questions and we'll route you to the right people.
+//       </p>
+
+//       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+//         <Field label="Your name">
+//           <input
+//             required
+//             value={form.name}
+//             onChange={(e) => setForm({ ...form, name: e.target.value })}
+//             placeholder="Aarav Deshmukh"
+//             className={inputCls}
+//           />
+//         </Field>
+//         <Field label="Sub-domain of interest">
+//           <select
+//             value={form.domain}
+//             onChange={(e) => setForm({ ...form, domain: e.target.value })}
+//             className={inputCls}
+//           >
+//             {domains.map((d) => (
+//               <option key={d} value={d} className="bg-background">
+//                 {d}
+//               </option>
+//             ))}
+//           </select>
+//         </Field>
+//       </div>
+
+//       <div className="mt-3">
+//         <Field label="About you (min 30 chars)">
+//           <textarea
+//             required
+//             minLength={30}
+//             maxLength={1200}
+//             value={form.about}
+//             onChange={(e) => setForm({ ...form, about: e.target.value })}
+//             placeholder="Branch, year, projects, internships and what you'd like to explore in this sector."
+//             className={`${inputCls} min-h-[96px] resize-y`}
+//           />
+//           <div className="text-[10px] text-foreground/40 mt-1 text-right">
+//             {form.about.length} / 1200
+//           </div>
+//         </Field>
+//       </div>
+
+//       <div className="mt-1">
+//         <Field label="What do you want to know?">
+//           <textarea
+//             maxLength={600}
+//             value={form.questions}
+//             onChange={(e) => setForm({ ...form, questions: e.target.value })}
+//             placeholder="e.g. Which companies to target? Best prep timeline for 3rd-year internships?"
+//             className={`${inputCls} min-h-[72px] resize-y`}
+//           />
+//         </Field>
+//       </div>
+
+//       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+//         <Field label="Email">
+//           <input
+//             required
+//             type="email"
+//             value={form.email}
+//             onChange={(e) => setForm({ ...form, email: e.target.value })}
+//             placeholder="you@iitb.ac.in"
+//             className={inputCls}
+//           />
+//         </Field>
+//         <Field label="Resume (optional)">
+//           <label className="mt-1 flex items-center gap-2 rounded-lg border border-foreground/15 bg-background/40 px-3 py-2 text-sm text-foreground/70 cursor-pointer hover:border-foreground/40">
+//             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16" /></svg>
+//             <span className="truncate">
+//               {form.resume?.name ?? "Upload PDF / DOC"}
+//             </span>
+//             <input
+//               type="file"
+//               accept=".pdf,.doc,.docx"
+//               className="hidden"
+//               onChange={(e) =>
+//                 setForm({ ...form, resume: e.target.files?.[0] ?? null })
+//               }
+//             />
+//           </label>
+//         </Field>
+//       </div>
+
+//       <button
+//         type="submit"
+//         className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-lg font-semibold text-sm px-4 py-3 transition-all"
+//         style={{
+//           background: `linear-gradient(135deg, ${sector.color}, ${sector.color}aa)`,
+//           color: "var(--background)",
+//           boxShadow: `0 10px 30px -10px ${sector.color}88`,
+//         }}
+//       >
+//         Connect with {sector.name} alumni
+//         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+//           <path d="M5 12h14M13 6l6 6-6 6" />
+//         </svg>
+//       </button>
+//     </form>
+//   );
+// }
+
+// const inputCls =
+//   "mt-1 w-full rounded-lg border border-foreground/15 bg-background/40 px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 focus:border-foreground/50 focus:outline-none";
+
+// function Field({
+//   label,
+//   children,
+// }: {
+//   label: string;
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <label className="block">
+//       <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-foreground/55">
+//         {label}
+//       </div>
+//       {children}
+//     </label>
+//   );
+// }
+
 function FeedbackForm({ sector }: { sector: Sector }) {
-  const domains = SUB_DOMAINS[sector.key] ?? ["General interest"];
+  const baseDomains = SUB_DOMAINS[sector.key] ?? ["General interest"];
+  const domainOptions = [...baseDomains, "Other"];
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
-    domain: domains[0],
+    domain: baseDomains[0],
+    domainOther: "",
     name: "",
     about: "",
     questions: "",
     email: "",
+    mobile: "",
     resume: null as File | null,
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) return;
-    if (form.about.trim().length < 30) return;
+  const refs = {
+    name: useRef<HTMLInputElement>(null),
+    domain: useRef<HTMLSelectElement>(null),
+    domainOther: useRef<HTMLInputElement>(null),
+    about: useRef<HTMLTextAreaElement>(null),
+    questions: useRef<HTMLTextAreaElement>(null),
+    email: useRef<HTMLInputElement>(null),
+    mobile: useRef<HTMLInputElement>(null),
+    resume: useRef<HTMLInputElement>(null),
+  };
+
+  const validate = () => {
+    const e: Record<string, string> = {};
+    if (!form.name.trim()) e.name = "Please enter your name.";
+    if (!form.domain) e.domain = "Please select a sub-domain.";
+    if (form.domain === "Other" && !form.domainOther.trim())
+      e.domainOther = "Please specify your sub-domain.";
+    if (form.about.trim().length < 30)
+      e.about = "Tell us a bit more about yourself (min 30 characters).";
+    if (!form.questions.trim())
+      e.questions = "Please tell us what you'd like to know.";
+    if (!form.email.trim()) e.email = "Please enter your email.";
+    else if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
+      e.email = "Please enter a valid email address.";
+    const mobileDigits = form.mobile.replace(/\D/g, "").replace(/^91|^0/, "");
+    if (!form.mobile.trim()) e.mobile = "Please enter your mobile number.";
+    else if (!/^[6-9]\d{9}$/.test(mobileDigits))
+      e.mobile = "Enter a valid 10-digit Indian mobile number.";
+    if (!form.resume) e.resume = "Please attach your resume.";
+    return e;
+  };
+
+  const focusFirst = (e: Record<string, string>) => {
+    const order = ["name", "domain", "domainOther", "email", "mobile", "about", "questions", "resume"] as const;
+    for (const k of order) {
+      if (e[k] && refs[k].current) {
+        refs[k].current!.focus();
+        refs[k].current!.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+    }
+  };
+
+  const onSubmit = (ev: React.FormEvent) => {
+    ev.preventDefault();
+    const e = validate();
+    setErrors(e);
+    if (Object.keys(e).length) {
+      focusFirst(e);
+      return;
+    }
     setSubmitted(true);
   };
+
+  const err = (k: string) =>
+    errors[k] ? (
+      <div className="mt-1 text-[11px] text-rose-400 font-medium">{errors[k]}</div>
+    ) : null;
 
   if (submitted) {
     return (
@@ -1394,9 +1626,12 @@ function FeedbackForm({ sector }: { sector: Sector }) {
     );
   }
 
+  const missingCount = Object.keys(errors).length;
+
   return (
     <form
       onSubmit={onSubmit}
+      noValidate
       className="rounded-2xl border border-foreground/12 bg-foreground/[0.03] p-5 sm:p-6 backdrop-blur-sm"
       style={{ boxShadow: `0 20px 60px -30px ${sector.color}55` }}
     >
@@ -1411,38 +1646,54 @@ function FeedbackForm({ sector }: { sector: Sector }) {
         <span style={{ color: sector.color }}>{sector.name}</span> alumni
       </div>
       <p className="text-[11px] text-foreground/55 mt-1">
-        Answer a few questions and we'll route you to the right people.
+        Answer a few questions and we'll route you to the right people. All fields are required.
       </p>
 
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <Field label="Your name">
           <input
-            required
+            ref={refs.name}
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="Aarav Deshmukh"
             className={inputCls}
           />
+          {err("name")}
         </Field>
         <Field label="Sub-domain of interest">
           <select
+            ref={refs.domain}
             value={form.domain}
             onChange={(e) => setForm({ ...form, domain: e.target.value })}
             className={inputCls}
           >
-            {domains.map((d) => (
+            {domainOptions.map((d) => (
               <option key={d} value={d} className="bg-background">
                 {d}
               </option>
             ))}
           </select>
+          {err("domain")}
+          {form.domain === "Other" ? (
+            <div className="mt-2">
+              <input
+                ref={refs.domainOther}
+                value={form.domainOther}
+                onChange={(e) => setForm({ ...form, domainOther: e.target.value })}
+                maxLength={80}
+                placeholder="Please specify"
+                className={inputCls}
+              />
+              {err("domainOther")}
+            </div>
+          ) : null}
         </Field>
       </div>
 
       <div className="mt-3">
         <Field label="About you (min 30 chars)">
           <textarea
-            required
+            ref={refs.about}
             minLength={30}
             maxLength={1200}
             value={form.about}
@@ -1453,39 +1704,59 @@ function FeedbackForm({ sector }: { sector: Sector }) {
           <div className="text-[10px] text-foreground/40 mt-1 text-right">
             {form.about.length} / 1200
           </div>
+          {err("about")}
         </Field>
       </div>
 
       <div className="mt-1">
         <Field label="What do you want to know?">
           <textarea
+            ref={refs.questions}
             maxLength={600}
             value={form.questions}
             onChange={(e) => setForm({ ...form, questions: e.target.value })}
             placeholder="e.g. Which companies to target? Best prep timeline for 3rd-year internships?"
             className={`${inputCls} min-h-[72px] resize-y`}
           />
+          {err("questions")}
         </Field>
       </div>
 
       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <Field label="Email">
           <input
-            required
+            ref={refs.email}
             type="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="you@iitb.ac.in"
             className={inputCls}
           />
+          {err("email")}
         </Field>
-        <Field label="Resume (optional)">
+        <Field label="Mobile number">
+          <input
+            ref={refs.mobile}
+            type="tel"
+            inputMode="numeric"
+            value={form.mobile}
+            onChange={(e) => setForm({ ...form, mobile: e.target.value })}
+            placeholder="10-digit mobile"
+            className={inputCls}
+          />
+          {err("mobile")}
+        </Field>
+      </div>
+
+      <div className="mt-3">
+        <Field label="Resume">
           <label className="mt-1 flex items-center gap-2 rounded-lg border border-foreground/15 bg-background/40 px-3 py-2 text-sm text-foreground/70 cursor-pointer hover:border-foreground/40">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16" /></svg>
             <span className="truncate">
               {form.resume?.name ?? "Upload PDF / DOC"}
             </span>
             <input
+              ref={refs.resume}
               type="file"
               accept=".pdf,.doc,.docx"
               className="hidden"
@@ -1494,8 +1765,15 @@ function FeedbackForm({ sector }: { sector: Sector }) {
               }
             />
           </label>
+          {err("resume")}
         </Field>
       </div>
+
+      {missingCount > 0 ? (
+        <div className="mt-4 rounded-lg border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-[12px] text-rose-300">
+          Please fill all required fields ({missingCount} remaining).
+        </div>
+      ) : null}
 
       <button
         type="submit"
@@ -1628,3 +1906,7 @@ function ConnectPage() {
     </div>
   );
 }
+
+
+
+

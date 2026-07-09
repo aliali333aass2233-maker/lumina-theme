@@ -1586,7 +1586,7 @@ function Coverflow({ onOpen }: { onOpen: (id: string) => void }) {
                   {isCenter && <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl animate-pulse-dot pointer-events-none" />}
                   <div className="absolute inset-x-0 bottom-0 p-4 pointer-events-none">
                     <div className="label-caps text-[9px] text-foreground/60">{s.eyebrow}</div>
-                    <div className="text-foreground font-semibold text-sm sm:text-base leading-tight mt-1">{s.title}</div>
+                    <div className="text-white font-semibold text-sm sm:text-base leading-tight mt-1">{s.title}</div>
                   </div>
                 </button>
               );
